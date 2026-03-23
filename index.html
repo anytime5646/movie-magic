@@ -88,4 +88,166 @@
     .rating {
       position: absolute; top: 8px; right: 8px;
       background: rgba(0,0,0,0.8); color: #ffcc00;
-      padding:
+      padding: 4px 8px; border-radius: 5px; font-size: 11px; font-weight: bold;
+    }
+
+    .info { padding: 10px; text-align: center; }
+    .movie-title { font-size: 13px; font-weight: bold; display: block; line-height: 1.3; color: #eee; }
+
+    /* 5. Movie Detail Modal (Popup) */
+    #movieModal {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.92); z-index: 2000; display: none; overflow-y: auto;
+    }
+    .modal-content {
+      max-width: 500px; margin: 30px auto; background: #1a1a1a;
+      border-radius: 15px; overflow: hidden; position: relative; border: 1px solid #333;
+    }
+    .modal-close {
+      position: absolute; top: 15px; right: 15px; background: #000;
+      color: #fff; border: none; width: 35px; height: 35px; border-radius: 50%;
+      font-size: 18px; cursor: pointer; z-index: 10;
+    }
+    .modal-img { width: 100%; height: 280px; object-fit: cover; }
+    .modal-info { padding: 25px; }
+    .tag-row { margin: 10px 0; }
+    .m-tag { background: var(--blue); padding: 4px 10px; border-radius: 5px; font-size: 11px; margin-right: 5px; font-weight: bold; }
+    .m-desc { font-size: 14px; color: #ccc; line-height: 1.6; margin: 15px 0; }
+    .modal-dl-btn {
+      background: var(--blue); color: white; border: none; padding: 15px;
+      border-radius: 10px; width: 100%; font-weight: bold; cursor: pointer; font-size: 15px;
+      box-shadow: 0 4px 10px var(--glow);
+    }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <div id="loader"><div class="spinner"></div></div>
+
+  <header>🎬 MOVIE MAGIC</header>
+
+  <div class="top-bar">
+    <span style="font-size: 11px; color: #888;">Live: Movies & Series 2026</span>
+    <button id="shareBtn" onclick="copySiteLink()">🔗 Share Site</button>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="movieSearch" placeholder="Search for movies..." onkeyup="filterMovies()">
+  </div>
+
+  <div class="filter-container">
+    <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
+    <button class="filter-btn" onclick="filterCategory('action', this)">Action</button>
+    <button class="filter-btn" onclick="filterCategory('anime', this)">Anime</button>
+    <button class="filter-btn" onclick="filterCategory('kdrama', this)">K-Drama</button>
+    <button class="filter-btn" onclick="filterCategory('series', this)">Series</button>
+  </div>
+
+  <div class="movie-grid" id="mainGrid">
+    
+    <div class="movie-card" data-category="series action" 
+         onclick="showDetails(
+           'Peaky Blinders: The Immortal Man (2026)', 
+           'Set during World War II, Thomas Shelby is forced back into action as a new threat emerges from the shadows of Birmingham. Tommy must navigate a world of spies, betrayal, and his own aging legacy to protect the Shelby family one last time.', 
+           'Cillian Murphy, Barry Keoghan, Rebecca Ferguson', 
+           '1 hr 52 min', 
+           'https://th.bing.com/th/id/OIF.Ogb2sbe5diDvL3gRlodeeg?w=258&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3', 
+           'https://cuty.io/LpsVutE1'
+         )">
+      <div class="poster-box">
+        <span class="rating">⭐ 8.2</span>
+        <img src="https://th.bing.com/th/id/OIF.Ogb2sbe5diDvL3gRlodeeg?w=258&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Peaky Blinders">
+      </div>
+      <div class="info">
+        <span class="movie-title">Peaky Blinders (2026) [480p]</span>
+      </div>
+    </div>
+
+    <div class="movie-card" data-category="anime">
+      <div class="poster-box">
+        <span class="rating">⭐ 0.0</span>
+        <div style="color:#444; padding-top:50%; text-align:center; font-size: 11px;">Next Upload</div>
+      </div>
+      <div class="info">
+        <span class="movie-title">Upcoming Title</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="movieModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeDetails()">✕</button>
+      <img id="mImg" class="modal-img">
+      <div class="modal-info">
+        <h2 id="mTitle" style="margin: 0; font-size: 22px;"></h2>
+        <div class="tag-row">
+          <span class="m-tag" id="mTime"></span>
+          <span class="m-tag" style="background:#444;">HD 480p</span>
+        </div>
+        <p class="m-desc" id="mDesc"></p>
+        <p style="font-size: 12px; color: #888;"><b>Cast:</b> <span id="mCast"></span></p>
+        <button id="mDlLink" class="modal-dl-btn">Download Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. Loading Logic
+    window.addEventListener("load", () => {
+      setTimeout(() => document.getElementById("loader").classList.add("loader-hidden"), 800);
+    });
+
+    // 2. Popup Modal Logic
+    function showDetails(title, desc, cast, time, img, link) {
+      document.getElementById('mTitle').innerText = title;
+      document.getElementById('mDesc').innerText = desc;
+      document.getElementById('mCast').innerText = cast;
+      document.getElementById('mTime').innerText = time;
+      document.getElementById('mImg').src = img;
+      document.getElementById('mDlLink').onclick = function() { window.open(link); };
+      
+      document.getElementById('movieModal').style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Stop background scrolling
+    }
+
+    function closeDetails() {
+      document.getElementById('movieModal').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Enable scrolling
+    }
+
+    // 3. Search Logic
+    function filterMovies() {
+      let input = document.getElementById('movieSearch').value.toLowerCase();
+      let cards = document.getElementsByClassName('movie-card');
+      for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].querySelector('.movie-title').innerText.toLowerCase();
+        cards[i].classList.toggle('hidden', !title.includes(input));
+      }
+    }
+
+    // 4. Category Logic
+    function filterCategory(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      let cards = document.getElementsByClassName('movie-card');
+      for (let i = 0; i < cards.length; i++) {
+        let cats = cards[i].getAttribute('data-category');
+        cards[i].classList.toggle('hidden', category !== 'all' && !cats.includes(category));
+      }
+    }
+
+    // 5. Share Logic
+    function copySiteLink() {
+      const btn = document.getElementById("shareBtn");
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        btn.innerHTML = "✅ Copied!";
+        setTimeout(() => btn.innerHTML = "🔗 Share Site", 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
