@@ -3,106 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAA Electric Work</title>
+<title>MAA Electric Service</title>
+
 <style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f4f4f4;
-color:#333;
-}
-header{
-background:#ff5a2c;
-color:white;
-padding:40px;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f5f5f5;color:#333}
+header{background:#c00000;color:#fff;padding:15px;text-align:center;position:sticky;top:0}
+nav a{color:#fff;text-decoration:none;margin:0 12px;font-weight:bold}
+.hero{
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('your-photo.jpg');
+background-size:cover;
+background-position:center;
+color:#fff;
 text-align:center;
+padding:120px 20px;
 }
-section{
-max-width:1000px;
-margin:auto;
-padding:30px;
-background:white;
-margin-top:20px;
-border-radius:10px;
-}
-h2{
-color:#ff5a2c;
-}
-ul{
-line-height:2;
-}
-.contact{
-background:#222;
-color:white;
-padding:25px;
-text-align:center;
-}
-button{
-background:#ff5a2c;
-color:white;
-padding:12px 25px;
-border:none;
-border-radius:5px;
-cursor:pointer;
-font-size:16px;
-}
-input,textarea{
-width:100%;
-padding:10px;
-margin:10px 0;
-}
-</style>
-</head>
-<body>
-
-<header>
-<h1>MAA Electric Work</h1>
-<p>Professional Electrician Services</p>
-<h2>📞 98337 47699</h2>
-</header>
-
-<section>
-<h2>About Us</h2>
-<p>We provide electrical installation, repair, maintenance and emergency services across Mumbai.</p>
-</section>
-
-<section>
-<h2>Our Services</h2>
-<ul>
-<li>House Wiring</li>
-<li>Electrical Repair</li>
-<li>Fan & Light Installation</li>
-<li>MCB Work</li>
-<li>Switch Board Repair</li>
-<li>24×7 Emergency Service</li>
-</ul>
-</section>
-
-<section>
-<h2>Why Choose Us?</h2>
-<ul>
-<li>✔ Industrial Expert</li>
-<li>✔ On-Time Service</li>
-<li>✔ Verified Electrician</li>
-<li>✔ Affordable Pricing</li>
-</ul>
-</section>
-
-<section>
-<h2>Book a Service</h2>
-<input type="text" placeholder="Your Name">
-<input type="tel" placeholder="Phone Number">
-<textarea placeholder="Describe your problem"></textarea>
-<button>Book Now</button>
-</section>
-
-<div class="contact">
-<h2>Contact</h2>
-<p><strong>Santosh Goud</strong></p>
-<p>📞 98337 47699</p>
-<p>📧 santoshgoudelect@gmail.com</p>
-<p>Patel Wadi, A. V. Nair Road, Juhu Church,<br>Vile Parle (W), Mumbai - 400049</p>
-</div>
-
-</body>
-</html>
+.hero h1{font-size:
