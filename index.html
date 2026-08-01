@@ -1,1 +1,352 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>MAA Electric Work</title></head><body><h1>MAA Electric Work</h1><p>Replace with full content.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAA Electric Work</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,#ff5a2c,#ff7a00);
+color:white;
+text-align:center;
+padding:45px 20px;
+}
+
+header h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+header p{
+font-size:20px;
+margin-bottom:15px;
+}
+
+.phone{
+font-size:28px;
+font-weight:bold;
+}
+
+.gallery{
+padding:20px;
+display:grid;
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.card{
+background:white;
+margin:20px;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.card h2{
+color:#ff5a2c;
+font-size:36px;
+margin-bottom:15px;
+}
+
+.card p,
+.card li{
+font-size:22px;
+line-height:1.7;
+}
+
+.card ul{
+padding-left:25px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:15px;
+margin:10px 0;
+font-size:18px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+background:#25D366;
+color:white;
+font-size:22px;
+padding:16px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:40px 20px 120px;
+}
+
+footer h2{
+color:#ff5a2c;
+font-size:42px;
+margin-bottom:15px;
+}
+
+footer p{
+font-size:22px;
+margin:8px 0;
+}
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:18px 25px;
+border-radius:50px;
+text-decoration:none;
+font-size:24px;
+font-weight:bold;
+box-shadow:0 6px 15px rgba(0,0,0,.3);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>⚡ MAA Electric Work</h1>
+<p>Professional Electrician Services</p>
+<div class="phone">📞 98337 47699</div>
+</header>
+
+<div class="gallery">
+
+<img src="IMG-20260731-WA0002.jpg">
+
+<img src="IMG-20260731-WA0003.jpg">
+
+<img src="IMG-20260731-WA0004.jpg">
+
+<img src="IMG-20260731-WA0005.jpg">
+
+</div>
+<div class="card">
+
+<h2>About Us</h2>
+
+<p>
+We provide professional electrical installation, repair,
+maintenance and emergency electrician services across Mumbai.
+Customer satisfaction and quality work are our priority.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Our Services</h2>
+
+<ul>
+
+<li>✔ House Wiring</li>
+
+<li>✔ Electrical Repair</li>
+
+<li>✔ Fan Installation</li>
+
+<li>✔ Light Installation</li>
+
+<li>✔ MCB Installation</li>
+
+<li>✔ Switch Board Repair</li>
+
+<li>✔ Office Wiring</li>
+
+<li>✔ Industrial Electrical Work</li>
+
+<li>✔ 24×7 Emergency Service</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Why Choose Us?</h2>
+
+<ul>
+
+<li>⭐ Professional Electrician</li>
+
+<li>⭐ Affordable Price</li>
+
+<li>⭐ Fast Response</li>
+
+<li>⭐ Quality Work</li>
+
+<li>⭐ On Time Service</li>
+
+<li>⭐ Customer Satisfaction</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Book a Service</h2>
+
+<input
+type="text"
+id="name"
+placeholder="Your Name">
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number">
+
+<input
+type="text"
+id="address"
+placeholder="Your Address">
+
+<select id="service">
+
+<option>House Wiring</option>
+
+<option>Electrical Repair</option>
+
+<option>Fan Installation</option>
+
+<option>Light Installation</option>
+
+<option>MCB Installation</option>
+
+<option>Switch Board Repair</option>
+
+<option>Emergency Service</option>
+
+</select>
+
+<textarea
+id="problem"
+rows="6"
+placeholder="Describe Your Problem"></textarea>
+
+<button onclick="sendWhatsApp()">
+
+Book on WhatsApp
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Customer Reviews</h2>
+
+<p>
+⭐⭐⭐⭐⭐
+Very professional electrician. Excellent work.
+</p>
+
+<hr>
+
+<p>
+⭐⭐⭐⭐⭐
+Fast response and affordable pricing.
+</p>
+
+<hr>
+
+<p>
+⭐⭐⭐⭐⭐
+Highly recommended for all electrical work.
+</p>
+
+</div>
+<footer>
+
+<h2>Contact</h2>
+
+<p><strong>Santosh Goud</strong></p>
+
+<p>📞 98337 47699</p>
+
+<p>📧 santoshgoudelect@gmail.com</p>
+
+<p>
+Patel Wadi, A. V. Nair Road,<br>
+Juhu Church,<br>
+Vile Parle (W), Mumbai - 400049
+</p>
+
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/919833747699"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<script>
+
+function sendWhatsApp(){
+
+let name=document.getElementById("name").value;
+
+let phone=document.getElementById("phone").value;
+
+let address=document.getElementById("address").value;
+
+let service=document.getElementById("service").value;
+
+let problem=document.getElementById("problem").value;
+
+let text=
+`Hello MAA Electric Work
+
+Name: ${name}
+
+Phone: ${phone}
+
+Address: ${address}
+
+Service: ${service}
+
+Problem: ${problem}`;
+
+window.open(
+"https://wa.me/919833747699?text="+encodeURIComponent(text),
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+
+</html>
